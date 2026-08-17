@@ -1,0 +1,588 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="עשר שאלות, מאה שניות, ותדעו איפה בדיוק התיקון שלכם נתקע אחרי ריב. שאלון של סילבי פרידמן.">
+<meta property="og:title" content="איפה התיקון שלכם נתקע?">
+<meta property="og:description" content="עשר שאלות, מאה שניות. אבחון קצר של הרצף שבין הריב לחזרה לקירבה.">
+<meta property="og:type" content="website">
+<title>איפה התיקון שלכם נתקע? · סילבי פרידמן</title>
+<style>
+@font-face{font-family:'Polin';src:url(__FONT_LIGHT__) format('opentype');font-weight:300;font-display:block}
+@font-face{font-family:'Polin';src:url(__FONT_BLACK__) format('opentype');font-weight:900;font-display:block}
+
+:root{
+  /* ארבעת צבעי המותג */
+  --cream:#EEE2D8;
+  --coffee:#290F0B;
+  --wafer:#C4A998;
+  --cherry:#B81414;
+
+  /* נגזרות בלבד: קרם בהיר יותר, וקפה בעוצמות שונות */
+  --paper:#F6EFE8;
+  --line:#E0D2C4;
+  --ink-soft:rgba(41,15,11,.76);
+  --ink-mute:rgba(41,15,11,.56);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{
+  font-family:'Polin',system-ui,sans-serif;font-weight:300;
+  direction:rtl;text-align:center;color:var(--coffee);background:var(--cream);
+  -webkit-font-smoothing:antialiased;line-height:1.6;
+  min-height:100vh;display:flex;flex-direction:column;
+}
+b,strong{font-weight:900}
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,40px);flex:1;
+  display:flex;flex-direction:column}
+
+h1{font-weight:900;font-size:clamp(34px,7vw,64px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+h2{font-weight:900;font-size:clamp(24px,4.4vw,40px);line-height:1.1;letter-spacing:-.028em;text-wrap:balance}
+p{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);margin:18px auto 0;max-width:52ch}
+.kick{font-weight:900;font-size:14px;letter-spacing:.06em;color:var(--cherry);display:block}
+.rule{height:4px;width:56px;background:var(--cherry);margin:20px auto 0}
+
+.btn{display:inline-block;margin-top:28px;padding:18px 40px;background:var(--cherry);
+  color:var(--cream);font-family:'Polin',sans-serif;font-weight:900;
+  font-size:clamp(17px,2vw,19px);border:0;border-radius:2px;cursor:pointer;
+  text-decoration:none;letter-spacing:-.01em;transition:background .16s ease}
+.btn:hover{background:var(--coffee)}
+.btn:focus-visible{outline:2px solid var(--coffee);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--coffee);border:1.5px solid var(--coffee)}
+.btn.ghost:hover{background:var(--coffee);color:var(--cream)}
+.btn.small{padding:13px 26px;font-size:16px;margin-top:14px}
+
+/* ---------- screens ---------- */
+.screen{display:none;flex:1;flex-direction:column;justify-content:center;
+  padding:clamp(40px,8vw,72px) 0}
+.screen.on{display:flex}
+
+/* ---------- intro ---------- */
+#intro{padding-top:clamp(30px,5vw,52px)}
+.brandbar{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  padding-bottom:18px;margin-bottom:clamp(26px,4vw,42px);border-bottom:1px solid var(--line);
+  font-weight:900;font-size:13px;color:var(--coffee)}
+.brandbar .lat{font-size:11px;color:var(--wafer)}
+.brandbar i{font-style:normal;color:var(--wafer)}
+
+#intro .lede{font-weight:900;font-size:clamp(20px,2.7vw,27px);color:var(--coffee);
+  margin-top:22px;letter-spacing:-.02em;max-width:none;line-height:1.3}
+
+/* ארבעה מצבים, ברשת */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.5vw,14px);
+  margin:clamp(28px,4vw,40px) auto 0;text-align:right}
+@media(max-width:640px){.cases{grid-template-columns:1fr}}
+.cases span{background:var(--paper);border:1px solid var(--line);border-right:4px solid var(--cherry);
+  padding:20px 20px;font-size:clamp(16px,1.85vw,18px);color:var(--ink-soft);line-height:1.5}
+
+/* המסלול הריק: זה מה שהשאלון ימלא */
+.seqlabel{font-weight:900;font-size:15px;letter-spacing:.03em;color:var(--coffee);
+  margin-top:clamp(34px,4.6vw,48px)}
+.seqmap{display:flex;align-items:flex-start;justify-content:center;
+  margin:16px auto 0;max-width:660px;width:100%}
+.snode{display:flex;flex-direction:column;align-items:center;gap:10px;flex:0 0 auto;
+  width:auto;min-width:56px;padding:0 5px}
+.sdot{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Polin',sans-serif;font-weight:900;font-size:12.5px;line-height:1;
+  border:2px solid var(--coffee);color:var(--coffee);background:var(--cream)}
+.slab{font-weight:900;font-size:13px;color:var(--coffee);line-height:1.25;
+  text-align:center;white-space:nowrap}
+.sconn{flex:1 1 auto;height:0;margin-top:23px;border-top:2px dashed var(--wafer);min-width:10px}
+@media(max-width:640px){
+  .snode{min-width:0;padding:0 2px}
+  .sdot{width:36px;height:36px;font-size:10.5px}
+  .slab{font-size:10px;line-height:1.2}
+  .sconn{margin-top:19px;min-width:5px}
+}
+
+#intro .punch{font-weight:900;color:var(--coffee);font-size:clamp(19px,2.4vw,25px);
+  margin-top:clamp(30px,4vw,42px);line-height:1.36;letter-spacing:-.018em}
+
+/* בלוק הפתיחה של השאלון */
+.startbox{background:var(--coffee);color:var(--cream);padding:clamp(30px,4.6vw,46px);
+  margin-top:clamp(32px,4.6vw,46px)}
+.startbox .count{font-weight:900;color:var(--wafer);font-size:clamp(19px,2.3vw,23px);margin:0}
+.startbox p{color:var(--wafer);margin-top:12px;max-width:46ch}
+.startbox .btn{margin-top:24px}
+.startbox .note{font-size:14.5px;color:var(--wafer);margin-top:20px;max-width:44ch;opacity:.9}
+
+/* ---------- question ---------- */
+.progress{display:flex;gap:5px;justify-content:center;margin-bottom:clamp(28px,5vw,44px)}
+.progress i{flex:1;max-width:44px;height:4px;background:var(--line);border-radius:2px;
+  transition:background .2s ease}
+.progress i.done{background:var(--cherry)}
+.qnum{font-family:'Polin',sans-serif;font-weight:900;font-size:13px;letter-spacing:.1em;
+  color:var(--coffee);direction:ltr;unicode-bidi:isolate}
+.qtext{font-weight:900;font-size:clamp(23px,4.2vw,36px);line-height:1.22;
+  letter-spacing:-.025em;margin-top:16px;text-wrap:balance}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:clamp(28px,4.5vw,40px)}
+.opt{font-family:'Polin',sans-serif;font-weight:900;font-size:clamp(17px,2vw,19px);
+  background:var(--paper);border:1.5px solid var(--line);color:var(--coffee);
+  padding:18px 22px;border-radius:2px;cursor:pointer;text-align:center;
+  transition:background .14s ease,border-color .14s ease,color .14s ease}
+.opt:hover{border-color:var(--cherry);background:var(--cream)}
+.opt:focus-visible{outline:2px solid var(--cherry);outline-offset:2px}
+.back{margin-top:24px;background:none;border:0;color:var(--ink-soft);cursor:pointer;
+  font-family:'Polin',sans-serif;font-weight:900;font-size:15px;padding:6px}
+.back:hover{color:var(--cherry)}
+.back[hidden]{display:none}
+
+/* ---------- map ---------- */
+.map{display:flex;align-items:flex-start;justify-content:center;
+  margin:0 auto clamp(26px,4vw,38px);max-width:620px;width:100%}
+.mnode{display:flex;flex-direction:column;align-items:center;gap:10px;flex:0 0 auto;
+  width:auto;min-width:50px;padding:0 5px}
+.mtop{height:60px;display:grid;place-items:center}
+.mdot{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  font-weight:900;font-size:13px;line-height:1;letter-spacing:.04em;
+  border:2px solid var(--coffee);background:var(--coffee);color:var(--cream)}
+.mlab{font-weight:900;font-size:10px;letter-spacing:.05em;
+  color:var(--coffee);line-height:1.2;text-align:center;white-space:nowrap}
+.mnode.here .mdot{width:62px;height:62px;font-size:15px;background:var(--cream);
+  border-color:var(--cherry);color:var(--cherry);border-width:2.5px}
+.mnode.here .mlab{color:var(--cherry);font-size:11.5px}
+.mnode.after .mdot{background:transparent;border-color:var(--wafer);color:var(--wafer);opacity:.75}
+.mnode.after .mlab{color:var(--wafer);opacity:.85}
+.mconn{flex:1 1 auto;height:0;margin-top:30px;border-top:2px dashed var(--coffee);min-width:14px}
+.mconn.after{border-top-color:var(--wafer);opacity:.6}
+@media(max-width:640px){
+  .mnode{min-width:0;padding:0 2px}
+  .mlab{font-size:8.5px;letter-spacing:.02em}
+  .mdot{width:36px;height:36px;font-size:10.5px}
+  .mnode.here .mdot{width:48px;height:48px;font-size:12px}
+  .mlab{font-size:8px}
+  .mnode.here .mlab{font-size:9.5px}
+  .mtop{height:50px}
+  .mconn{margin-top:24px;min-width:5px}
+}
+
+/* ---------- result ---------- */
+.station-big{font-weight:900;font-size:clamp(38px,7.4vw,74px);letter-spacing:.1em;
+  color:var(--cherry);line-height:1;margin-top:10px;
+  direction:ltr;unicode-bidi:isolate}
+#result h2{margin-top:14px;font-size:clamp(22px,3.5vw,33px);color:var(--coffee);
+  max-width:22ch;margin-inline:auto}
+
+.analysis{background:var(--paper);border:1px solid var(--line);
+  padding:clamp(28px,4.6vw,44px) clamp(24px,4.2vw,42px);
+  margin-top:12px;text-align:right}
+#rAnalysis{margin-top:clamp(30px,4.4vw,42px)}
+.analysis p{margin:0 0 17px;max-width:56ch;text-align:right;
+  font-size:clamp(17px,1.95vw,19px);color:var(--ink-soft);line-height:1.68}
+.analysis p:last-child{margin-bottom:0}
+.analysis p.beats{line-height:2}
+.analysis b{color:var(--coffee);font-weight:900}
+#rAnalysis2:empty{display:none}
+
+.hold{background:var(--coffee);color:var(--cream);
+  padding:clamp(30px,5vw,48px) clamp(26px,4.4vw,44px);margin-top:12px;
+  font-weight:900;font-size:clamp(19px,2.5vw,25px);line-height:1.45;
+  letter-spacing:-.018em;text-align:right}
+
+.teaser{margin:clamp(30px,4.4vw,42px) auto 0;max-width:40ch;font-weight:900;
+  font-size:clamp(17px,2vw,20px);color:var(--cherry);line-height:1.5;
+  letter-spacing:.01em}
+
+.more{margin-top:clamp(30px,4.4vw,42px);padding-top:clamp(30px,4.4vw,42px);
+  border-top:1px solid var(--line);text-align:right}
+.more h3{font-weight:900;font-size:clamp(25px,3.8vw,36px);letter-spacing:-.03em;
+  color:var(--coffee);margin-bottom:20px;text-align:center}
+.more p{margin:0 0 18px;max-width:56ch;margin-inline:auto;text-align:right;
+  font-size:clamp(17px,1.95vw,19px);color:var(--ink-soft);line-height:1.68}
+.more b{color:var(--coffee);font-weight:900}
+.more p.punchline{font-weight:900;color:var(--coffee);font-size:clamp(19px,2.4vw,24px);
+  line-height:1.42;letter-spacing:-.02em;text-align:center;max-width:26ch;margin-top:26px}
+.more p.stations-line{font-weight:900;color:var(--coffee);
+  font-size:clamp(13px,1.7vw,17px);letter-spacing:.14em;direction:ltr;unicode-bidi:isolate;
+  text-align:center;background:var(--wafer);border:0;padding:16px 10px;max-width:none}
+.more .btn{display:block;text-align:center;margin:26px auto 0;max-width:440px}
+.after{margin-top:clamp(30px,4.5vw,44px);display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.toast{font-weight:900;font-size:14px;color:var(--coffee);margin-top:12px;min-height:20px}
+
+footer{padding:26px 20px 40px;color:var(--ink-soft);font-weight:900;font-size:13px}
+footer a{color:var(--ink-soft);text-decoration:none}
+footer a:hover{color:var(--cherry)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="screen on" id="intro">
+    <div class="brandbar">
+      <span class="lat">SELFISH LOVE</span><i>·</i><span>סילבי פרידמן · מאמנת זוגות</span>
+    </div>
+
+    <span class="kick">שאלון קצר</span>
+    <h1>איפה התיקון<br>שלכם נתקע?</h1>
+    <div class="rule"></div>
+
+    <p class="lede">רבתם. נרגעתם (סוג של). ועכשיו מה?</p>
+
+    <div class="cases">
+      <span>אצל חלק מהזוגות הריב פשוט ממשיך בראש.</span>
+      <span>אצל אחרים אף אחד לא רוצה להיות הראשון שמושיט יד.</span>
+      <span>יש זוגות שכבר מתחילים לדבר, אבל תוך שתי דקות שוב מתגוננים, מאשימים או נסגרים.</span>
+      <span>ויש כאלה שפשוט חוזרים לשגרה כאילו כלום לא קרה, אבל משהו ביניהם נשאר רחוק.</span>
+    </div>
+
+    <p class="seqlabel">אחרי ריב יש רצף שלם של תיקון</p>
+    <div class="seqmap" role="img" aria-label="רצף התיקון: לעצור, הזמן שאחרי, לחזור, לדבר, קרבה">
+      <div class="snode"><span class="sdot">01</span><span class="slab">לעצור</span></div>
+      <div class="sconn"></div>
+      <div class="snode"><span class="sdot">02</span><span class="slab">הזמן שאחרי</span></div>
+      <div class="sconn"></div>
+      <div class="snode"><span class="sdot">03</span><span class="slab">לחזור</span></div>
+      <div class="sconn"></div>
+      <div class="snode"><span class="sdot">04</span><span class="slab">לדבר</span></div>
+      <div class="sconn"></div>
+      <div class="snode"><span class="sdot">05</span><span class="slab">קרבה</span></div>
+    </div>
+
+    <p class="punch">אצל רוב הזוגות, הרצף הזה נתקע שוב ושוב באותה נקודה.</p>
+
+    <p>וכשלא יודעים איפה נתקעים, קל לחשוב שהבעיה היא שאתם רבים יותר מדי, לא מתקשרים טוב, או פשוט ״לא מצליחים להסתדר״.</p>
+
+    <p>אבל לפעמים שינוי קטן בנקודה הנכונה משנה את כל מה שקורה אחרי הריב.</p>
+
+    <div class="startbox">
+      <p class="count">10 שאלות. פחות משתי דקות.</p>
+      <p>בסוף תגלו איפה התיקון שלכם נתקע היום, ומה הדפוס שמרחיק ביניכם דווקא שם.</p>
+      <button class="btn" id="start" type="button">מתחילים</button>
+      <p class="note">אין כאן תשובות נכונות, ואין ציון. רק דרך להבין קצת יותר טוב את הדפוס שלכם.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUESTION ============ -->
+  <section class="screen" id="question">
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <span class="qnum" id="qnum">01 / 10</span>
+    <div class="qtext" id="qtext"></div>
+    <div class="opts" id="opts"></div>
+    <div><button class="back" id="back" type="button" hidden>← לשאלה הקודמת</button></div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section class="screen" id="result">
+    <div class="map" id="map" role="img" aria-label="מפת חמש התחנות"></div>
+    <div class="station-big" id="rEn"></div>
+    <h2 id="rTitle"></h2>
+    <div class="analysis" id="rAnalysis"></div>
+    <div class="hold" id="rHold"></div>
+    <div class="analysis" id="rAnalysis2"></div>
+    <p class="teaser" id="rTeaser"></p>
+    <div class="more" id="rMore"></div>
+    <div class="after">
+      <button class="btn ghost small" id="share" type="button">שיתוף השאלון</button>
+      <button class="btn ghost small" id="again" type="button">למלא שוב</button>
+    </div>
+    <div class="toast" id="toast"></div>
+  </section>
+
+</div>
+
+<footer>סילבי פרידמן · מאמנת זוגות · <a href="https://www.instagram.com/sylvie_selfishlove/" target="_blank" rel="noopener">@sylvie_selfishlove</a></footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---------- קישורים. לעדכן כאן ובשום מקום אחר ----------
+  var LINKS = {
+    comeback: "https://sylvie1510.github.io/comeback-lp/",
+    recharge: "https://www.instagram.com/sylvie_selfishlove/"    // TODO: להחליף בקישור ריצ׳ארג׳
+  };
+
+  var ORDER = ["STOP","SPACE","RETURN","REPAIR","RECONNECT"];
+
+  var LABEL = {
+    STOP:"STOP", SPACE:"SPACE", RETURN:"RETURN", REPAIR:"REPAIR", RECONNECT:"RECONNECT"
+  };
+
+  // rev:true = משפט שמתאר את המצב הלא בריא, הניקוד מתהפך
+  var QUESTIONS = [
+    {s:"STOP",      rev:true,  t:"הריב אצלנו הולך רחוק, ונאמרות מילים שאחר כך מצטערים עליהן."},
+    {s:"STOP",      rev:true,  t:"כשאחד מאיתנו מבקש לעצור את הריב, השני מרגיש שבורחים ממנו."},
+    {s:"SPACE",     rev:false, t:"בשעות שאחרי הריב אנחנו משלימים מהר וחוזרים למסלול."},
+    {s:"SPACE",     rev:true,  t:"כשאחד מאיתנו צריך רגע שקט, זה הופך לריב נוסף על הריב המקורי."},
+    {s:"RETURN",    rev:false, t:"מישהו אצלנו מושיט יד ראשון, גם כשהוא עוד פגוע."},
+    {s:"RETURN",    rev:true,  t:"מי שמושיט יד ראשון מרגיש אצלנו שהוא הפסיד."},
+    {s:"REPAIR",    rev:true,  t:"כשאנחנו מדברים על מה שקרה, אנחנו ממשיכים שוב את אותו ריב בלופים."},
+    {s:"REPAIR",    rev:true,  t:"כשאחד מאיתנו אומר מה כאב לו, השני נכנס להגנה."},
+    {s:"RECONNECT", rev:false, t:"אחרי שהשלמנו, אנחנו יודעים מה נעשה אחרת בפעם הבאה."},
+    {s:"RECONNECT", rev:false, t:"אחרי ריב אנחנו חוזרים להיות קרובים באמת."}
+  ];
+
+  var OPTIONS = [
+    {t:"כמעט תמיד",       v:3},
+    {t:"לעיתים קרובות",   v:2},
+    {t:"לעיתים רחוקות",   v:1},
+    {t:"כמעט אף פעם",     v:0}
+  ];
+
+  var RESULTS = {
+    STOP:{
+      pattern:"הריב לא באמת נעצר",
+      body:
+        "<p>יש נקודה בריב שבה אתם כבר לא באמת מנסים להבין אחד את השני.</p>" +
+        "<p>הטון עולה. ההגנות נכנסות. מישהו תוקף, מישהו נסגר, מישהו יוצא מהחדר או אומר משהו שסוגר את השיחה.</p>" +
+        "<p>מבחוץ זה נראה כאילו הריב פשוט נגמר.</p>" +
+        "<p>אבל בפועל, הוא נעצר כי אחד מכם כבר לא יכול היה להישאר בתוכו.</p>" +
+        "<p>וכשאין דרך ברורה ומוסכמת לעצור, העצירה עצמה יכולה להרגיש כמו דחייה, נטישה, ענישה או בריחה.</p>",
+      hold:"ואז במקום שהעצירה תגן על הקשר, היא הופכת לעוד חלק מהפגיעה.",
+      body2:
+        "<p>מה שכאב לא קיבל מקום. מה שנאמר נשאר באוויר. ובפעם הבאה שאתם רבים, " +
+        "אתם מגיעים כבר עם הזיכרון של איך הריב הקודם הסתיים.</p>",
+      lecture:"ב״הקאמבק״ אני מסבירה מה קורה לנו כשהמערכת כבר מוצפת, למה דווקא אז אנחנו עושים את הדברים שהכי מרחיקים בינינו, ואיך נראית עצירה שלא משאירה את אחד מכם לבד בתוך הריב."
+    },
+
+    SPACE:{
+      pattern:"הריב ממשיך להתנהל בתוך הראש",
+      body:
+        "<p>מבחוץ כבר שקט.</p>" +
+        "<p>אתם לא מתווכחים יותר, אולי אפילו חזרתם לתפקד כרגיל. אבל בפנים, הריב עדיין ממשיך.</p>" +
+        "<p>אתם משחזרים מה נאמר. חושבים מה הייתם צריכים לענות. מפרשים למה הוא התכוון, " +
+        "מה זה אומר עליה, ומה בטח יקרה אם תנסו לדבר שוב.</p>" +
+        "<p>וכל סיבוב כזה במחשבות <b>מדליק מחדש את הכעס, העלבון והפגיעה</b>, גם כשהגוף כבר התחיל להירגע.</p>" +
+        "<p>במקביל, משהו שכאב לכם עדיין לא קיבל התייחסות. אתם עדיין מרגישים פגועים, לא מובנים, " +
+        "אולי אפילו לבד בתוך מה שקרה.</p>" +
+        "<p>וככל שעובר יותר זמן, החזרה לשיחה נעשית קשה יותר.</p>" +
+        "<p>כי עכשיו אתם כבר לא רק צריכים להתמודד עם הריב שהיה. " +
+        "אתם גם צריכים להתמודד עם כל מה שהצטבר לכם בראש מאז.</p>",
+      hold:"וככה הזמן שאמור לעזור לכם להירגע הופך לפעמים לזמן שמגדיל את המרחק ומחזק את הרצון להימנע.",
+      body2:"",
+      lecture:"ב״הקאמבק״ אני מראה מה קורה לנו בשעות האלה, למה המוח ממשיך להחזיק את הריב חי גם כשהוא כבר נגמר, ואיך עוברים את השלב הזה בלי להגיע לשיחת התיקון טעונים אפילו יותר."
+    },
+
+    RETURN:{
+      pattern:"שניכם מחכים שהשני יחזור קודם",
+      body:
+        "<p>הכעס כבר ירד קצת. אולי אפילו יש בכם חלק שכבר רוצה שהמרחק ייגמר.</p>" +
+        "<p>אבל אז מתחיל המשא ומתן השקט בתוך הראש.</p>" +
+        "<p class=\"beats\">למה שאני אפנה ראשון?<br>למה שאני שוב אהיה זו שמרככת?<br>" +
+        "אם אני אתקרב עכשיו, הוא יחשוב שמה שקרה היה בסדר.<br>" +
+        "אם אני אושיט יד, אולי זה אומר שאכפת לי יותר.</p>" +
+        "<p>וככה שני אנשים שרוצים להתקרב יכולים להישאר רחוקים רק כי אף אחד לא רוצה להרגיש שהוא זה שמוותר.</p>" +
+        "<p>לפעמים גם כשאחד כבר עושה ניסיון קטן להתקרב, השני עדיין כל כך פגוע שהוא לא מצליח לזהות אותו או לקבל אותו.</p>",
+      hold:"ואז המרחק נמשך הרבה אחרי שהריב עצמו כבר איבד כוח.",
+      body2:
+        "<p>לא כי אתם רוצים להתרחק.</p>" +
+        "<p>אלא כי החזרה עצמה נטענת במשמעויות של צדק, כבוד, כוח, ו״מי התחיל״.</p>",
+      lecture:"ב״הקאמבק״ אני מסבירה למה להיות הראשון שחוזר יכול להרגיש כל כך מסוכן, למה אנחנו לפעמים דוחים דווקא את היד שאנחנו מחכים לה, ומה צריך לקרות כדי שתוכלו להתחיל לחזור בלי למחוק את מה שכאב."
+    },
+
+    REPAIR:{
+      pattern:"אתם חוזרים לדבר, אבל לא מצליחים באמת לתקן",
+      body:
+        "<p>כאן אתם כבר עושים משהו שהרבה זוגות בכלל לא עושים: אתם חוזרים לשיחה.</p>" +
+        "<p>אבל אז מהר מאוד אתם נשאבים שוב לאותו מקום.</p>" +
+        "<p class=\"beats\">מי התחיל.<br>מי אמר מה.<br>מי הגזים.<br>מי צריך להתנצל קודם.<br>ומי בכלל צודק.</p>" +
+        "<p>במקום שכל אחד יוכל להרגיש שהחוויה שלו נשמעת, השיחה הופכת למאבק על העובדות.</p>" +
+        "<p>ואז גם כשמישהו מנסה להסביר מה כאב לו, הצד השני שומע האשמה ומתחיל להגן על עצמו.</p>",
+      hold:"וככה שיחה שאמורה לייצר תיקון הופכת לעוד סיבוב של אותו ריב, רק בטון קצת יותר רגוע.",
+      body2:
+        "<p>אתם מסיימים מותשים, לפעמים עם פחות תקווה ממה שהייתה לכם לפני שהתחלתם לדבר.</p>",
+      lecture:"ב״הקאמבק״ אני מראה מה הופך שיחה אחרי ריב לשיחת תיקון אמיתית, למה אמפתיה כל כך קשה דווקא כשגם אנחנו פגועים, ואיך אפשר לדבר על אחריות, גבולות ושינוי בלי להפוך שוב לאויבים."
+    },
+
+    RECONNECT:{
+      pattern:"הריב נסגר, אבל הקרבה לא באמת חוזרת",
+      body:
+        "<p>אמרתם את מה שהיה צריך להגיד.</p>" +
+        "<p>אולי הייתה התנצלות. אולי אפילו הסכמתם מה תעשו אחרת בפעם הבאה.</p>" +
+        "<p>על הנייר, הריב מאחוריכם.</p>" +
+        "<p>אבל משהו עדיין מרגיש קצת רחוק.</p>" +
+        "<p>אתם חוזרים לילדים, לעבודה, לבית, למסכים. החיים ממשיכים.</p>" +
+        "<p>רק שהחום, הקלות, המגע, החברות או התחושה שאתם שוב באותו צד לא תמיד חוזרים יחד איתם.</p>",
+      hold:"ואז אתם יכולים להיות ״בסדר״ בלי באמת להרגיש קרובים.",
+      body2:
+        "<p>וכשזה קורה שוב ושוב, לאט לאט נוצרת זוגיות שמתפקדת מצוין מבחוץ, אבל מרגישה הרבה פחות חיה מבפנים.</p>",
+      lecture:"ב״הקאמבק״ אני מדברת על החלק שרבים מדלגים עליו אחרי שיחה קשה: איך באמת סוגרים את המעגל, איך חוזרים להיות זוג ולא רק צוות מתפקד, ולמה תיקון לא מסתיים ברגע שאמרנו ״סליחה״."
+    }
+  };
+
+  var CLOSING = function(lecture){
+    return "<h3>ומה עכשיו?</h3>" +
+      "<p>זו נקודת התקיעה המרכזית שלכם. אבל תיקון אחרי ריב הוא רצף שלם, " +
+      "וכל שלב משפיע על הבא אחריו.</p>" +
+      "<p class=\"stations-line\">STOP · SPACE · RETURN · REPAIR · RECONNECT</p>" +
+      "<p>" + lecture + "</p>" +
+      "<p class=\"punchline\">כי לא מספיק לדעת לריב פחות. צריך לדעת איך לחזור.</p>";
+  };
+
+  // ---------- state ----------
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var idx = 0;
+
+  var $ = function(id){ return document.getElementById(id); };
+
+  function track(name, params){
+    if (typeof window.fbq === "function") { try { window.fbq("trackCustom", name, params||{}); } catch(e){} }
+  }
+
+  function show(id){
+    ["intro","question","result"].forEach(function(s){ $(s).classList.toggle("on", s===id); });
+    window.scrollTo(0,0);
+  }
+
+  // ---------- progress ----------
+  var prog = $("progress");
+  QUESTIONS.forEach(function(){ prog.appendChild(document.createElement("i")); });
+
+  function renderQuestion(){
+    var q = QUESTIONS[idx];
+    $("qnum").textContent = String(idx+1).padStart(2,"0") + " / " + String(QUESTIONS.length).padStart(2,"0");
+    $("qtext").textContent = q.t;
+    Array.prototype.forEach.call(prog.children, function(el,i){ el.classList.toggle("done", i<=idx); });
+    $("back").hidden = idx === 0;
+
+    var box = $("opts");
+    box.textContent = "";
+    OPTIONS.forEach(function(o){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt";
+      b.textContent = o.t;
+      if (answers[idx] === o.v) { b.style.borderColor = "var(--cherry)"; }
+      b.addEventListener("click", function(){ answer(o.v); });
+      box.appendChild(b);
+    });
+  }
+
+  function answer(v){
+    answers[idx] = v;
+    if (idx < QUESTIONS.length - 1) { idx++; renderQuestion(); }
+    else { finish(); }
+  }
+
+  // ---------- scoring ----------
+  function compute(){
+    var per = {};
+    ORDER.forEach(function(s){ per[s] = 0; });
+    var total = 0;
+    QUESTIONS.forEach(function(q,i){
+      var v = q.rev ? (3 - answers[i]) : answers[i];
+      per[q.s] += v; total += v;
+    });
+
+    var broken = null;
+    for (var i=0;i<ORDER.length;i++){ if (per[ORDER[i]] <= 3) { broken = ORDER[i]; break; } }
+
+    var station = broken;
+    if (!station){
+      // אף תחנה לא שבורה: מציגים את הנמוכה ביותר. בתיקו מנצחת המאוחרת ברצף
+      var lowest = ORDER[0];
+      ORDER.forEach(function(s){ if (per[s] <= per[lowest]) lowest = s; });
+      station = lowest;
+    }
+
+    var band = total >= 22 ? "high" : (total >= 11 ? "mid" : "low");
+
+    return { per:per, total:total, station:station, healthy:!broken, band:band };
+  }
+
+  // ---------- map ----------
+  function renderMap(station){
+    var here = ORDER.indexOf(station);
+    var map = $("map");
+    map.textContent = "";
+    ORDER.forEach(function(s,i){
+      if (i > 0){
+        var c = document.createElement("div");
+        c.className = "mconn" + (i > here ? " after" : "");
+        map.appendChild(c);
+      }
+      var node = document.createElement("div");
+      node.className = "mnode" + (i === here ? " here" : (i > here ? " after" : ""));
+      var top = document.createElement("div");
+      top.className = "mtop";
+      var dot = document.createElement("div");
+      dot.className = "mdot";
+      dot.textContent = "0" + (i+1);
+      top.appendChild(dot);
+      var lab = document.createElement("div");
+      lab.className = "mlab";
+      lab.textContent = LABEL[s];
+      node.appendChild(top); node.appendChild(lab);
+      map.appendChild(node);
+    });
+  }
+
+  // ---------- result ----------
+  function ctaButton(kind, name){
+    var a = document.createElement("a");
+    a.className = "btn";
+    a.target = "_blank"; a.rel = "noopener";
+    if (kind === "recharge"){
+      a.href = LINKS.recharge; a.textContent = "לפרטים על ריצ׳ארג׳";
+      a.className = "btn ghost";
+      a.addEventListener("click", function(){ track("QuizCTA", {station:name, product:"recharge"}); });
+    } else {
+      a.href = LINKS.comeback; a.textContent = "לפרטים על ההרצאה · 179 ₪";
+      a.addEventListener("click", function(){
+        track("QuizCTA", {station:name, product:"comeback"});
+        if (typeof window.fbq === "function") { try { window.fbq("track","InitiateCheckout"); } catch(e){} }
+      });
+    }
+    return a;
+  }
+
+  function finish(){
+    var r = compute();
+    var data = RESULTS[r.station];
+    var name = LABEL[r.station];
+
+    renderMap(r.station);
+    $("rEn").textContent = name;
+
+    if (r.healthy){
+      $("rTitle").textContent = "התיקון שלכם עובד";
+      $("rAnalysis").innerHTML =
+        "<p>אף תחנה ברצף לא נשברת אצלכם, וזה לא מובן מאליו. " +
+        "רוב הזוגות שממלאים את השאלון הזה לא שם.</p>" +
+        "<p>התחנה שהכי כדאי לשים לב אליה היא <b>" + name + "</b>, וככה נראה הדפוס כשהיא נחלשת:</p>" +
+        data.body;
+      $("rHold").innerHTML = data.hold;
+      $("rAnalysis2").innerHTML = data.body2 || "";
+      $("rTeaser").textContent = "שווה לשמור על זה לפני שהוא נשחק.";
+      $("rMore").innerHTML =
+        "<h3>ומה עכשיו?</h3>" +
+        "<p>אין לכם נקודת תקיעה, ולכן אין כאן מה לתקן. " +
+        "אם בא לכם לשמור על מה שכבר עובד ביניכם, <b>ריצ׳ארג׳</b> הוא עשר דקות ביום למשך 21 יום.</p>";
+      $("rMore").appendChild(ctaButton("recharge", name));
+    } else {
+      $("rTitle").textContent = "הדפוס שמרחיק ביניכם: " + data.pattern;
+      $("rAnalysis").innerHTML = data.body;
+      $("rHold").innerHTML = data.hold;
+      $("rAnalysis2").innerHTML = data.body2 || "";
+      $("rTeaser").textContent = "זה בדיוק מה שקורה ב־" + name + ".";
+      $("rMore").innerHTML = CLOSING(data.lecture);
+      $("rMore").appendChild(ctaButton("comeback", name));
+    }
+
+    show("result");
+    track("QuizComplete", {station:name, total:r.total, band:r.band});
+  }
+
+  // ---------- events ----------
+  $("start").addEventListener("click", function(){
+    idx = 0; renderQuestion(); show("question"); track("QuizStart");
+  });
+  $("back").addEventListener("click", function(){
+    if (idx > 0){ idx--; renderQuestion(); }
+  });
+  $("again").addEventListener("click", function(){
+    answers = new Array(QUESTIONS.length).fill(null);
+    idx = 0; show("intro");
+  });
+  $("share").addEventListener("click", function(){
+    var url = window.location.href.split("#")[0];
+    var payload = {title:"איפה התיקון שלכם נתקע?", text:"עשר שאלות, מאה שניות.", url:url};
+    if (navigator.share){ navigator.share(payload).catch(function(){}); return; }
+    if (navigator.clipboard){
+      navigator.clipboard.writeText(url).then(function(){ $("toast").textContent = "הקישור הועתק"; });
+    }
+  });
+
+  if (typeof window.fbq === "function"){ try { window.fbq("track","ViewContent"); } catch(e){} }
+})();
+</script>
