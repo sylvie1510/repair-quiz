@@ -119,7 +119,10 @@ p{font-size:clamp(18px,2.1vw,20.5px);color:var(--ink-soft);margin:19px auto 0;ma
   background:var(--paper);border:1.5px solid var(--line);color:var(--coffee);
   padding:18px 22px;border-radius:2px;cursor:pointer;text-align:center;
   transition:background .14s ease,border-color .14s ease,color .14s ease}
-.opt:hover{border-color:var(--cherry);background:var(--cream)}
+@media (hover:hover) and (pointer:fine){
+  .opt:hover{border-color:var(--cherry);background:var(--cream)}
+}
+.opt.picked{border-color:var(--cherry)}
 .opt:focus-visible{outline:2px solid var(--cherry);outline-offset:2px}
 .back{margin-top:24px;background:none;border:0;color:var(--ink-soft);cursor:pointer;
   font-family:'Polin',sans-serif;font-weight:900;font-size:15px;padding:6px}
@@ -156,46 +159,43 @@ p{font-size:clamp(18px,2.1vw,20.5px);color:var(--ink-soft);margin:19px auto 0;ma
 }
 
 /* ---------- result ---------- */
-.station-big{font-weight:900;font-size:clamp(38px,7.4vw,74px);letter-spacing:.1em;
-  color:var(--cherry);line-height:1;margin-top:10px;
+.station-big{font-weight:900;font-size:clamp(36px,6.8vw,66px);letter-spacing:.1em;
+  color:var(--cherry);line-height:1;margin-top:6px;
   direction:ltr;unicode-bidi:isolate}
-#result h2{margin-top:14px;font-size:clamp(22px,3.5vw,33px);color:var(--coffee);
+#result h2{margin-top:10px;font-size:clamp(22px,3.5vw,33px);color:var(--coffee);
   max-width:22ch;margin-inline:auto}
 
 .analysis{background:var(--paper);border:1px solid var(--line);
-  padding:clamp(28px,4.6vw,44px) clamp(24px,4.2vw,42px);
-  margin-top:12px;text-align:right}
-#rAnalysis{margin-top:clamp(30px,4.4vw,42px)}
-.analysis p{margin:0 0 19px;max-width:54ch;text-align:right;
+  padding:clamp(22px,3.4vw,32px) clamp(22px,3.4vw,32px);
+  margin-top:10px;text-align:right}
+#rAnalysis{margin-top:clamp(20px,3vw,28px)}
+.analysis p{margin:0 0 13px;max-width:54ch;text-align:right;
   font-size:clamp(18px,2.05vw,20.5px);color:var(--ink-soft);line-height:1.72}
 .analysis p:last-child{margin-bottom:0}
-.analysis p.beats{line-height:2}
+.analysis p.beats{line-height:1.8}
 .analysis b{color:var(--coffee);font-weight:900}
 #rAnalysis2:empty{display:none}
 
 .hold{background:var(--coffee);color:var(--cream);
-  padding:clamp(30px,5vw,48px) clamp(26px,4.4vw,44px);margin-top:12px;
+  padding:clamp(22px,3.6vw,34px) clamp(22px,3.4vw,32px);margin-top:10px;
   font-weight:900;font-size:clamp(19px,2.5vw,25px);line-height:1.45;
   letter-spacing:-.018em;text-align:right}
 
-.teaser{margin:clamp(30px,4.4vw,42px) auto 0;max-width:40ch;font-weight:900;
+.teaser{margin:clamp(20px,3vw,28px) auto 0;max-width:40ch;font-weight:900;
   font-size:clamp(17px,2vw,20px);color:var(--cherry);line-height:1.5;
   letter-spacing:.01em}
 
-.more{margin-top:clamp(30px,4.4vw,42px);padding-top:clamp(30px,4.4vw,42px);
+.more{margin-top:clamp(22px,3.2vw,30px);padding-top:clamp(22px,3.2vw,30px);
   border-top:1px solid var(--line);text-align:right}
-.more h3{font-weight:900;font-size:clamp(25px,3.8vw,36px);letter-spacing:-.03em;
-  color:var(--coffee);margin-bottom:20px;text-align:center}
-.more p{margin:0 0 19px;max-width:54ch;margin-inline:auto;text-align:right;
+.more h3{font-weight:900;font-size:clamp(24px,3.6vw,33px);letter-spacing:-.03em;
+  color:var(--coffee);margin-bottom:14px;text-align:center}
+.more p{margin:0 0 13px;max-width:54ch;margin-inline:auto;text-align:right;
   font-size:clamp(18px,2.05vw,20.5px);color:var(--ink-soft);line-height:1.72}
 .more b{color:var(--coffee);font-weight:900}
 .more p.punchline{font-weight:900;color:var(--coffee);font-size:clamp(19px,2.4vw,24px);
-  line-height:1.42;letter-spacing:-.02em;text-align:center;max-width:26ch;margin-top:26px}
-.more p.stations-line{font-weight:900;color:var(--coffee);
-  font-size:clamp(13px,1.7vw,17px);letter-spacing:.14em;direction:ltr;unicode-bidi:isolate;
-  text-align:center;background:var(--wafer);border:0;padding:16px 10px;max-width:none}
-.more .btn{display:block;text-align:center;margin:26px auto 0;max-width:440px}
-.after{margin-top:clamp(30px,4.5vw,44px);display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  line-height:1.42;letter-spacing:-.02em;text-align:center;max-width:26ch;margin-top:18px}
+.more .btn{display:block;text-align:center;margin:18px auto 0;max-width:440px}
+.after{margin-top:clamp(22px,3.2vw,32px);display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .toast{font-weight:900;font-size:14px;color:var(--coffee);margin-top:12px;min-height:20px}
 
 footer{padding:26px 20px 40px;color:var(--ink-soft);font-weight:900;font-size:13px}
@@ -293,6 +293,10 @@ footer a:hover{color:var(--cherry)}
   };
 
   var ORDER = ["STOP","SPACE","RETURN","REPAIR","RECONNECT"];
+
+  // תחנה נחשבת שבורה בציון הזה ומטה, מתוך 6.
+  // ב-3 היו 86% מהתשובות נוחתות על STOP או SPACE, כי הסריקה נעצרת בראשונה ששבורה.
+  var BROKEN_AT = 2;
 
   var LABEL = {
     STOP:"STOP", SPACE:"SPACE", RETURN:"RETURN", REPAIR:"REPAIR", RECONNECT:"RECONNECT"
@@ -404,7 +408,6 @@ footer a:hover{color:var(--cherry)}
     return "<h3>ומה עכשיו?</h3>" +
       "<p>זו נקודת התקיעה המרכזית שלכם. אבל תיקון אחרי ריב הוא רצף שלם, " +
       "וכל שלב משפיע על הבא אחריו.</p>" +
-      "<p class=\"stations-line\">STOP · SPACE · RETURN · REPAIR · RECONNECT</p>" +
       "<p>" + lecture + "</p>" +
       "<p class=\"punchline\">כי לא מספיק לדעת לריב פחות. צריך לדעת איך לחזור.</p>";
   };
@@ -442,8 +445,8 @@ footer a:hover{color:var(--cherry)}
       b.type = "button";
       b.className = "opt";
       b.textContent = o.t;
-      if (answers[idx] === o.v) { b.style.borderColor = "var(--cherry)"; }
-      b.addEventListener("click", function(){ answer(o.v); });
+      if (answers[idx] === o.v) { b.classList.add("picked"); }
+      b.addEventListener("click", function(){ b.blur(); answer(o.v); });
       box.appendChild(b);
     });
   }
@@ -465,7 +468,7 @@ footer a:hover{color:var(--cherry)}
     });
 
     var broken = null;
-    for (var i=0;i<ORDER.length;i++){ if (per[ORDER[i]] <= 3) { broken = ORDER[i]; break; } }
+    for (var i=0;i<ORDER.length;i++){ if (per[ORDER[i]] <= BROKEN_AT) { broken = ORDER[i]; break; } }
 
     var station = broken;
     if (!station){
