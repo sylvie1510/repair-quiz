@@ -17,10 +17,10 @@
   --cherry:#B81414;
 
   /* נגזרות בלבד: קרם בהיר יותר, וקפה בעוצמות שונות */
-  --paper:#F6EFE8;
+  --paper:#FCF8F4;
   --line:#E0D2C4;
-  --ink-soft:rgba(41,15,11,.76);
-  --ink-mute:rgba(41,15,11,.56);
+  --ink-soft:#290F0B;
+  --ink-mute:rgba(41,15,11,.62);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -37,7 +37,7 @@ b,strong{font-weight:900}
 
 h1{font-weight:900;font-size:clamp(34px,7vw,64px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
 h2{font-weight:900;font-size:clamp(24px,4.4vw,40px);line-height:1.1;letter-spacing:-.028em;text-wrap:balance}
-p{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);margin:18px auto 0;max-width:52ch}
+p{font-size:clamp(18px,2.1vw,20.5px);color:var(--ink-soft);margin:19px auto 0;max-width:52ch;line-height:1.66}
 .kick{font-weight:900;font-size:14px;letter-spacing:.06em;color:var(--cherry);display:block}
 .rule{height:4px;width:56px;background:var(--cherry);margin:20px auto 0}
 
@@ -72,7 +72,7 @@ p{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);margin:18px auto 0;max-
   margin:clamp(28px,4vw,40px) auto 0;text-align:right}
 @media(max-width:640px){.cases{grid-template-columns:1fr}}
 .cases span{background:var(--paper);border:1px solid var(--line);border-right:4px solid var(--cherry);
-  padding:20px 20px;font-size:clamp(16px,1.85vw,18px);color:var(--ink-soft);line-height:1.5}
+  padding:21px 21px;font-size:clamp(17px,1.95vw,19px);color:var(--ink-soft);line-height:1.55}
 
 /* המסלול הריק: זה מה שהשאלון ימלא */
 .seqlabel{font-weight:900;font-size:15px;letter-spacing:.03em;color:var(--coffee);
@@ -115,7 +115,7 @@ p{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);margin:18px auto 0;max-
 .qtext{font-weight:900;font-size:clamp(23px,4.2vw,36px);line-height:1.22;
   letter-spacing:-.025em;margin-top:16px;text-wrap:balance}
 .opts{display:flex;flex-direction:column;gap:10px;margin-top:clamp(28px,4.5vw,40px)}
-.opt{font-family:'Polin',sans-serif;font-weight:900;font-size:clamp(17px,2vw,19px);
+.opt{font-family:'Polin',sans-serif;font-weight:900;font-size:clamp(17.5px,2.05vw,19.5px);
   background:var(--paper);border:1.5px solid var(--line);color:var(--coffee);
   padding:18px 22px;border-radius:2px;cursor:pointer;text-align:center;
   transition:background .14s ease,border-color .14s ease,color .14s ease}
@@ -166,8 +166,8 @@ p{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);margin:18px auto 0;max-
   padding:clamp(28px,4.6vw,44px) clamp(24px,4.2vw,42px);
   margin-top:12px;text-align:right}
 #rAnalysis{margin-top:clamp(30px,4.4vw,42px)}
-.analysis p{margin:0 0 17px;max-width:56ch;text-align:right;
-  font-size:clamp(17px,1.95vw,19px);color:var(--ink-soft);line-height:1.68}
+.analysis p{margin:0 0 19px;max-width:54ch;text-align:right;
+  font-size:clamp(18px,2.05vw,20.5px);color:var(--ink-soft);line-height:1.72}
 .analysis p:last-child{margin-bottom:0}
 .analysis p.beats{line-height:2}
 .analysis b{color:var(--coffee);font-weight:900}
@@ -186,8 +186,8 @@ p{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);margin:18px auto 0;max-
   border-top:1px solid var(--line);text-align:right}
 .more h3{font-weight:900;font-size:clamp(25px,3.8vw,36px);letter-spacing:-.03em;
   color:var(--coffee);margin-bottom:20px;text-align:center}
-.more p{margin:0 0 18px;max-width:56ch;margin-inline:auto;text-align:right;
-  font-size:clamp(17px,1.95vw,19px);color:var(--ink-soft);line-height:1.68}
+.more p{margin:0 0 19px;max-width:54ch;margin-inline:auto;text-align:right;
+  font-size:clamp(18px,2.05vw,20.5px);color:var(--ink-soft);line-height:1.72}
 .more b{color:var(--coffee);font-weight:900}
 .more p.punchline{font-weight:900;color:var(--coffee);font-size:clamp(19px,2.4vw,24px);
   line-height:1.42;letter-spacing:-.02em;text-align:center;max-width:26ch;margin-top:26px}
