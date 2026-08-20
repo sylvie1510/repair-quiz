@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="15 שאלות, ובסוף מפה של חמש תחנות התיקון שלכם עם אחוז דליפה בכל אחת. שאלון של סילבי פרידמן.">
+<meta name="description" content="15 שאלות שיגלו מה מונע מכם להתקרב חזרה אחרי ריב, ומה תוקע אתכם בריחוק. שאלון של סילבי פרידמן.">
 <meta property="og:title" content="למה כל כך קשה להשלים אחרי ריב?">
-<meta property="og:description" content="15 שאלות, כשתי דקות, ובסוף מפה של חמש התחנות עם אחוז דליפה בכל אחת.">
+<meta property="og:description" content="15 שאלות, כשתי דקות, ותדעו איפה בדיוק התיקון שלכם נתקע.">
 <meta property="og:type" content="website">
 <title>למה כל כך קשה להשלים אחרי ריב? · סילבי פרידמן</title>
 <style>
@@ -74,26 +74,6 @@ p{font-size:clamp(18px,2.1vw,20.5px);color:var(--ink-soft);margin:19px auto 0;ma
 .cases span{background:var(--paper);border:1px solid var(--line);border-right:4px solid var(--cherry);
   padding:21px 21px;font-size:clamp(17px,1.95vw,19px);color:var(--ink-soft);line-height:1.55}
 
-/* המסלול הריק: זה מה שהשאלון ימלא */
-.seqlabel{font-weight:900;font-size:15px;letter-spacing:.03em;color:var(--coffee);
-  margin-top:clamp(34px,4.6vw,48px)}
-.seqmap{display:flex;align-items:flex-start;justify-content:center;
-  margin:16px auto 0;max-width:660px;width:100%}
-.snode{display:flex;flex-direction:column;align-items:center;gap:10px;flex:0 0 auto;
-  width:auto;min-width:56px;padding:0 5px}
-.sdot{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
-  font-family:'Polin',sans-serif;font-weight:900;font-size:12.5px;line-height:1;
-  border:2px solid var(--coffee);color:var(--coffee);background:var(--cream)}
-.slab{font-weight:900;font-size:13px;color:var(--coffee);line-height:1.25;
-  text-align:center;white-space:nowrap}
-.sconn{flex:1 1 auto;height:0;margin-top:23px;border-top:2px dashed var(--wafer);min-width:10px}
-@media(max-width:640px){
-  .snode{min-width:0;padding:0 2px}
-  .sdot{width:36px;height:36px;font-size:10.5px}
-  .slab{font-size:10px;line-height:1.2}
-  .sconn{margin-top:19px;min-width:5px}
-}
-
 #intro .punch{font-weight:900;color:var(--coffee);font-size:clamp(19px,2.4vw,25px);
   margin-top:clamp(30px,4vw,42px);line-height:1.36;letter-spacing:-.018em}
 
@@ -126,68 +106,41 @@ p{font-size:clamp(18px,2.1vw,20.5px);color:var(--ink-soft);margin:19px auto 0;ma
 .back:hover{color:var(--cherry)}
 .back[hidden]{display:none}
 
-/* ---------- מפת הדליפה ---------- */
-.leakmap{margin:clamp(22px,3.2vw,30px) auto 0;max-width:600px;width:100%;text-align:right}
-.lrow{display:grid;grid-template-columns:minmax(118px,auto) 1fr minmax(96px,auto);
-  align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
-.lrow:last-child{border-bottom:0}
-.lhead{display:flex;align-items:baseline;gap:7px;white-space:nowrap}
-.lnum{font-weight:900;font-size:11px;color:var(--wafer);direction:ltr;unicode-bidi:isolate}
-.len{font-weight:900;font-size:12.5px;letter-spacing:.06em;color:var(--coffee);
-  direction:ltr;unicode-bidi:isolate}
-.lheb{font-weight:900;font-size:13px;color:var(--ink-mute)}
-.lbarwrap{height:10px;background:var(--line);overflow:hidden}
-.lbar{height:100%;background:var(--wafer);transition:width .6s ease}
-.lval{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
-.lval b{font-weight:900;font-size:17px;color:var(--coffee);direction:ltr;unicode-bidi:isolate}
-.lval span{font-weight:900;font-size:11.5px;color:var(--ink-mute)}
-.lrow.is-worst .lbar{background:var(--cherry)}
-.lrow.is-worst .len,.lrow.is-worst .lheb,
-.lrow.is-worst .lval b,.lrow.is-worst .lval span{color:var(--cherry)}
-.lkey{font-size:13.5px;color:var(--ink-mute);margin-top:14px;max-width:44ch}
-@media(max-width:560px){
-  .lrow{grid-template-columns:1fr auto;gap:8px 12px;padding:12px 0}
-  .lbarwrap{grid-column:1 / -1;order:3}
-  .lval b{font-size:16px}
+/* ---------- map ---------- */
+.map{display:flex;align-items:flex-start;justify-content:center;
+  margin:0 auto clamp(26px,4vw,38px);max-width:620px;width:100%}
+.mnode{display:flex;flex-direction:column;align-items:center;gap:10px;flex:0 0 auto;
+  width:auto;min-width:50px;padding:0 5px}
+.mtop{height:60px;display:grid;place-items:center}
+.mdot{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  font-weight:900;font-size:13px;line-height:1;letter-spacing:.04em;
+  border:2px solid var(--coffee);background:var(--coffee);color:var(--cream)}
+.mlab{font-weight:900;font-size:10px;letter-spacing:.05em;
+  color:var(--coffee);line-height:1.2;text-align:center;white-space:nowrap}
+.mnode.here .mdot{width:62px;height:62px;font-size:15px;background:var(--cream);
+  border-color:var(--cherry);color:var(--cherry);border-width:2.5px}
+.mnode.here .mlab{color:var(--cherry);font-size:11.5px}
+.mnode.after .mdot{background:transparent;border-color:var(--wafer);color:var(--wafer);opacity:.75}
+.mnode.after .mlab{color:var(--wafer);opacity:.85}
+.mconn{flex:1 1 auto;height:0;margin-top:30px;border-top:2px dashed var(--coffee);min-width:14px}
+.mconn.after{border-top-color:var(--wafer);opacity:.6}
+@media(max-width:640px){
+  .mnode{min-width:0;padding:0 2px}
+  .mlab{font-size:8.5px;letter-spacing:.02em}
+  .mdot{width:36px;height:36px;font-size:10.5px}
+  .mnode.here .mdot{width:48px;height:48px;font-size:12px}
+  .mlab{font-size:8px}
+  .mnode.here .mlab{font-size:9.5px}
+  .mtop{height:50px}
+  .mconn{margin-top:24px;min-width:5px}
 }
-
-/* כותרת מפרידה */
-.lead{font-weight:900;font-size:13px;letter-spacing:.06em;color:var(--cherry);
-  margin-top:clamp(34px,4.6vw,48px);padding-top:clamp(22px,3vw,28px);
-  border-top:1px solid var(--line)}
-
-/* כרטיסי שאר התחנות */
-.others{display:grid;gap:12px;margin-top:16px;text-align:right}
-.scard{background:var(--paper);border:1px solid var(--line);
-  border-right:4px solid var(--wafer);padding:20px}
-.scard.band-leak{border-right-color:var(--cherry)}
-.scard.band-crack{border-right-color:var(--coffee)}
-.shead{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}
-.sen{font-weight:900;font-size:12px;letter-spacing:.06em;color:var(--coffee);
-  direction:ltr;unicode-bidi:isolate}
-.sheb{font-weight:900;font-size:14px;color:var(--coffee)}
-.sband{font-weight:900;font-size:11.5px;color:var(--ink-mute);margin-inline-start:auto;
-  direction:rtl}
-.scard p{margin:0;max-width:none;font-size:clamp(16.5px,1.9vw,18px);line-height:1.62}
-.scard p.sreflect{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);
-  font-weight:900;font-size:15px;color:var(--coffee);line-height:1.5}
-
-/* שאלת הרפלקציה של התחנה הראשית */
-.reflect{margin-top:clamp(18px,2.6vw,24px);padding:18px 20px;
-  border:1.5px solid var(--coffee);font-weight:900;
-  font-size:clamp(17px,2vw,19.5px);color:var(--coffee);line-height:1.5;
-  text-align:right;max-width:none}
-
-.rpattern{font-weight:900;font-size:clamp(22px,3.6vw,33px);line-height:1.14;
-  letter-spacing:-.028em;color:var(--coffee);margin-top:8px;
-  max-width:24ch;margin-inline:auto;text-wrap:balance}
 
 /* ---------- result ---------- */
 .station-big{font-weight:900;font-size:clamp(36px,6.8vw,66px);letter-spacing:.1em;
   color:var(--cherry);line-height:1;margin-top:6px;
   direction:ltr;unicode-bidi:isolate}
-#result h2{margin-top:12px;font-size:clamp(26px,4.4vw,42px);color:var(--coffee);
-  max-width:20ch;margin-inline:auto}
+#result h2{margin-top:10px;font-size:clamp(22px,3.5vw,33px);color:var(--coffee);
+  max-width:22ch;margin-inline:auto}
 
 .analysis{background:var(--paper);border:1px solid var(--line);
   padding:clamp(22px,3.4vw,32px) clamp(22px,3.4vw,32px);
@@ -242,20 +195,7 @@ footer a:hover{color:var(--cherry)}
 
     <p class="lede">15 שאלות שיגלו מה מונע מכם להתקרב חזרה, ומה תוקע אתכם בריחוק.</p>
 
-    <p class="seqlabel">אחרי ריב יש רצף שלם של תיקון</p>
-    <div class="seqmap" role="img" aria-label="רצף התיקון: לעצור, הזמן שאחרי, לחזור, לדבר, קרבה">
-      <div class="snode"><span class="sdot">01</span><span class="slab">לעצור</span></div>
-      <div class="sconn"></div>
-      <div class="snode"><span class="sdot">02</span><span class="slab">הזמן שאחרי</span></div>
-      <div class="sconn"></div>
-      <div class="snode"><span class="sdot">03</span><span class="slab">לחזור</span></div>
-      <div class="sconn"></div>
-      <div class="snode"><span class="sdot">04</span><span class="slab">לדבר</span></div>
-      <div class="sconn"></div>
-      <div class="snode"><span class="sdot">05</span><span class="slab">קרבה</span></div>
-    </div>
-
-    <p class="punch">אצל רוב הזוגות הוא נתקע שוב ושוב באותה נקודה. בסוף תקבלו מפה של כל חמש התחנות שלכם.</p>
+    <p class="punch">אצל רוב הזוגות התיקון נתקע שוב ושוב באותה נקודה. בסוף השאלון תדעו איפה.</p>
 
     <div class="startbox">
       <button class="btn" id="start" type="button">מתחילים</button>
@@ -274,22 +214,13 @@ footer a:hover{color:var(--cherry)}
 
   <!-- ============ RESULT ============ -->
   <section class="screen" id="result">
-    <span class="kick">מפת התיקון שלכם</span>
-    <h2 id="rTitle"></h2>
-    <div class="leakmap" id="leakmap" role="img"></div>
-    <p class="lkey">האחוז מראה כמה דולף בכל תחנה. ככל שהוא גבוה יותר, שם הרצף נתקע.</p>
-
-    <div class="lead" id="rLead"></div>
+    <div class="map" id="map" role="img" aria-label="מפת חמש התחנות"></div>
     <div class="station-big" id="rEn"></div>
-    <h3 class="rpattern" id="rPattern"></h3>
+    <h2 id="rTitle"></h2>
     <div class="analysis" id="rAnalysis"></div>
     <div class="hold" id="rHold"></div>
     <div class="analysis" id="rAnalysis2"></div>
-    <p class="reflect" id="rReflect"></p>
     <p class="teaser" id="rTeaser"></p>
-
-    <div class="lead" id="rOthersHead">שאר התחנות שלכם</div>
-    <div class="others" id="others"></div>
     <div class="more" id="rMore"></div>
     <div class="after">
       <button class="btn ghost small" id="share" type="button">שיתוף השאלון</button>
@@ -314,19 +245,14 @@ footer a:hover{color:var(--cherry)}
 
   var ORDER = ["STOP","SPACE","RETURN","REPAIR","RECONNECT"];
 
+  // תחנה נחשבת שבורה בציון הזה ומטה, מתוך 9 (שלוש שאלות לתחנה).
+  // 3 מתוך 9 הוא אותו יחס כמו 2 מתוך 6 בגרסת עשר השאלות.
+  // התפלגות: STOP 33%, SPACE 23%, RETURN 17%, REPAIR 14%, RECONNECT 13%, בריאים 15%.
+  var BROKEN_AT = 3;
+
   var LABEL = {
     STOP:"STOP", SPACE:"SPACE", RETURN:"RETURN", REPAIR:"REPAIR", RECONNECT:"RECONNECT"
   };
-
-  // השם בעברית לכל תחנה, כמו במפה בדף הפתיחה
-  var HEB = {
-    STOP:"לעצור", SPACE:"הזמן שאחרי", RETURN:"לחזור", REPAIR:"לדבר", RECONNECT:"קרבה"
-  };
-
-  // אחוז דליפה: כמה חסר לתחנה מתוך הציון המלא שלה.
-  // עד 33% מחזיק, 34-66% סדק, 67% ומעלה דליפה.
-  // בספים האלה תחנה ממוצעת נוחתת על "סדק", ובממוצע 1.6 תחנות מתוך 5 אדומות.
-  var BAND_LABEL = { hold:"מחזיק", crack:"סדק", leak:"דליפה" };
 
   // rev:true = משפט שמתאר את המצב הלא בריא, הניקוד מתהפך
   var QUESTIONS = [
@@ -435,35 +361,6 @@ footer a:hover{color:var(--cherry)}
     }
   };
 
-  // טקסט קצר לכל תחנה, בשני מצבים, + שאלת רפלקציה אחת שמתאימה לשניהם
-  var SHORT = {
-    STOP:{
-      leak:"הריב אצלכם ממשיך גם אחרי שכבר ברור ששניכם לא מנסים להבין אחד את השני. אין דרך מוסכמת לעצור, ולכן העצירה עצמה מרגישה כמו נטישה, ענישה או בריחה.",
-      hold:"אתם יודעים לעצור לפני שהריב הולך רחוק מדי, וזה ממש לא מובן מאליו. העצירה אצלכם מגנה על הקשר במקום להפוך לעוד פגיעה.",
-      reflect:"מה הסימן הראשון אצלכם שהריב כבר עבר את הנקודה שבה אפשר עוד להבין אחד את השני?"
-    },
-    SPACE:{
-      leak:"בשעות שאחרי הריב הוא ממשיך להתנהל אצלכם בראש. כל סיבוב של מחשבות מדליק מחדש את הכעס, וכשאתם סוף סוף חוזרים לדבר אתם כבר טעונים יותר מבהתחלה.",
-      hold:"אתם עוברים את השעות שאחרי בלי שהריב יגדל לכם בראש. הזמן אצלכם באמת מרגיע, במקום להרחיק.",
-      reflect:"מה עובר לכם בראש בשעה הראשונה אחרי ריב, וכמה מזה באמת נאמר בקול?"
-    },
-    RETURN:{
-      leak:"שניכם מחכים שהשני יזוז ראשון. החזרה נטענת אצלכם במשמעויות של צדק, כבוד ומי התחיל, וככה שני אנשים שרוצים להתקרב נשארים רחוקים.",
-      hold:"מישהו אצלכם מצליח להושיט יד ראשון, גם כשהוא עוד פגוע. זה הדבר שמקצר לכם את המרחק יותר מכל דבר אחר.",
-      reflect:"מי אצלכם בדרך כלל מושיט יד ראשון, ומה הוא צריך כדי לעשות את זה בלי להרגיש שהפסיד?"
-    },
-    REPAIR:{
-      leak:"אתם חוזרים לדבר, אבל השיחה הופכת למאבק על מי צודק. במקום שכל אחד ירגיש שהחוויה שלו נשמעת, שניכם מסיימים מותשים.",
-      hold:"אתם מצליחים לדבר על מה שקרה בלי להיכנס שוב לאותו ריב. כל אחד אומר מה כאב לו, והשני מצליח לשמוע את זה בלי להיכנס להגנה.",
-      reflect:"בשיחה האחרונה שלכם אחרי ריב, מי הרגיש שנשמע ומי נשאר עם משהו שלא נאמר?"
-    },
-    RECONNECT:{
-      leak:"הריב נסגר, אבל הקרבה לא חוזרת איתו. אתם ״בסדר״ ומתפקדים, רק בלי החום, המגע והתחושה שאתם שוב באותו צד.",
-      hold:"אחרי שהשלמתם אתם באמת חוזרים אחד לשני, לא רק לשגרה. זה מה ששומר על הזוגיות חיה גם אחרי ריבים קשים.",
-      reflect:"מה הדבר הקטן שמסמן אצלכם שבאמת חזרתם להיות קרובים, ולא רק הפסקתם לריב?"
-    }
-  };
-
   var CLOSING = function(lecture){
     return "<h3>ומה עכשיו?</h3>" +
       "<p>זו נקודת התקיעה המרכזית שלכם. אבל תיקון אחרי ריב הוא רצף שלם, " +
@@ -518,13 +415,8 @@ footer a:hover{color:var(--cherry)}
   }
 
   // ---------- scoring ----------
-  // כל תחנה מקבלת ציון מלא של 3 נקודות לשאלה. אחוז הדליפה הוא מה שחסר ממנו.
-  var MAX_PER = {};
-  ORDER.forEach(function(s){ MAX_PER[s] = 0; });
-  QUESTIONS.forEach(function(q){ MAX_PER[q.s] += 3; });
-
   function compute(){
-    var per = {}, leak = {}, band = {};
+    var per = {};
     ORDER.forEach(function(s){ per[s] = 0; });
     var total = 0;
     QUESTIONS.forEach(function(q,i){
@@ -532,70 +424,46 @@ footer a:hover{color:var(--cherry)}
       per[q.s] += v; total += v;
     });
 
-    var worst = ORDER[0];
-    ORDER.forEach(function(s){
-      leak[s] = Math.round((MAX_PER[s] - per[s]) / MAX_PER[s] * 100);
-      band[s] = leak[s] <= 33 ? "hold" : (leak[s] <= 66 ? "crack" : "leak");
-      // בתיקו מנצחת התחנה המוקדמת ברצף: שם הרצף נתקע קודם
-      if (per[s] < per[worst]) worst = s;
-    });
+    var broken = null;
+    for (var i=0;i<ORDER.length;i++){ if (per[ORDER[i]] <= BROKEN_AT) { broken = ORDER[i]; break; } }
 
-    var healthy = ORDER.every(function(s){ return band[s] !== "leak"; });
+    var station = broken;
+    if (!station){
+      // אף תחנה לא שבורה: מציגים את הנמוכה ביותר. בתיקו מנצחת המאוחרת ברצף
+      var lowest = ORDER[0];
+      ORDER.forEach(function(s){ if (per[s] <= per[lowest]) lowest = s; });
+      station = lowest;
+    }
 
-    return { per:per, leak:leak, band:band, worst:worst, healthy:healthy, total:total };
+    var band = total >= 22 ? "high" : (total >= 11 ? "mid" : "low");
+
+    return { per:per, total:total, station:station, healthy:!broken, band:band };
   }
 
-  // ---------- מפת הדליפה ----------
-  function renderLeakMap(r){
-    var box = $("leakmap");
-    box.textContent = "";
+  // ---------- map ----------
+  function renderMap(station){
+    var here = ORDER.indexOf(station);
+    var map = $("map");
+    map.textContent = "";
     ORDER.forEach(function(s,i){
-      var row = document.createElement("div");
-      row.className = "lrow" + (s === r.worst ? " is-worst" : "");
-
-      var head = document.createElement("div");
-      head.className = "lhead";
-      head.innerHTML = '<span class="lnum">0' + (i+1) + '</span>' +
-        '<span class="len">' + LABEL[s] + '</span>' +
-        '<span class="lheb">' + HEB[s] + '</span>';
-
-      var wrap = document.createElement("div");
-      wrap.className = "lbarwrap";
-      var bar = document.createElement("div");
-      bar.className = "lbar";
-      bar.style.width = r.leak[s] + "%";
-      wrap.appendChild(bar);
-
-      var val = document.createElement("div");
-      val.className = "lval";
-      val.innerHTML = '<b>' + r.leak[s] + '%</b><span>' + BAND_LABEL[r.band[s]] + '</span>';
-
-      row.appendChild(head); row.appendChild(wrap); row.appendChild(val);
-      box.appendChild(row);
-    });
-    box.setAttribute("aria-label",
-      "מפת דליפה: " + ORDER.map(function(s){
-        return HEB[s] + " " + r.leak[s] + " אחוז";
-      }).join(", "));
-  }
-
-  // ---------- כרטיסי שאר התחנות ----------
-  function renderOthers(r){
-    var box = $("others");
-    box.textContent = "";
-    ORDER.forEach(function(s){
-      if (s === r.worst) return;
-      var card = document.createElement("div");
-      card.className = "scard band-" + r.band[s];
-      card.innerHTML =
-        '<div class="shead">' +
-          '<span class="sen">' + LABEL[s] + '</span>' +
-          '<span class="sheb">' + HEB[s] + '</span>' +
-          '<span class="sband">' + BAND_LABEL[r.band[s]] + ' · ' + r.leak[s] + '%</span>' +
-        '</div>' +
-        '<p>' + (r.band[s] === "hold" ? SHORT[s].hold : SHORT[s].leak) + '</p>' +
-        '<p class="sreflect">' + SHORT[s].reflect + '</p>';
-      box.appendChild(card);
+      if (i > 0){
+        var c = document.createElement("div");
+        c.className = "mconn" + (i > here ? " after" : "");
+        map.appendChild(c);
+      }
+      var node = document.createElement("div");
+      node.className = "mnode" + (i === here ? " here" : (i > here ? " after" : ""));
+      var top = document.createElement("div");
+      top.className = "mtop";
+      var dot = document.createElement("div");
+      dot.className = "mdot";
+      dot.textContent = "0" + (i+1);
+      top.appendChild(dot);
+      var lab = document.createElement("div");
+      lab.className = "mlab";
+      lab.textContent = LABEL[s];
+      node.appendChild(top); node.appendChild(lab);
+      map.appendChild(node);
     });
   }
 
@@ -620,25 +488,18 @@ footer a:hover{color:var(--cherry)}
 
   function finish(){
     var r = compute();
-    var s = r.worst;
-    var data = RESULTS[s];
-    var name = LABEL[s];
+    var data = RESULTS[r.station];
+    var name = LABEL[r.station];
 
-    renderLeakMap(r);
-    renderOthers(r);
-
+    renderMap(r.station);
     $("rEn").textContent = name;
-    $("rPattern").textContent = data.pattern;
-    $("rReflect").textContent = SHORT[s].reflect;
 
     if (r.healthy){
-      $("rTitle").textContent = "אף תחנה אצלכם לא דולפת";
-      $("rLead").textContent = "התחנה שהכי כדאי לשמור עליה";
+      $("rTitle").textContent = "התיקון שלכם עובד";
       $("rAnalysis").innerHTML =
-        "<p>אף תחנה ברצף לא מגיעה אצלכם לדליפה, וזה לא מובן מאליו. " +
+        "<p>אף תחנה ברצף לא נשברת אצלכם, וזה לא מובן מאליו. " +
         "רוב הזוגות שממלאים את השאלון הזה לא שם.</p>" +
-        "<p>הכי שברירית אצלכם היא <b>" + HEB[s] + "</b>, עם " + r.leak[s] + "% דליפה. " +
-        "ככה נראה הדפוס כשהיא נחלשת:</p>" +
+        "<p>התחנה שהכי כדאי לשים לב אליה היא <b>" + name + "</b>, וככה נראה הדפוס כשהיא נחלשת:</p>" +
         data.body;
       $("rHold").innerHTML = data.hold;
       $("rAnalysis2").innerHTML = data.body2 || "";
@@ -649,8 +510,7 @@ footer a:hover{color:var(--cherry)}
         "אם בא לכם לשמור על מה שכבר עובד ביניכם, <b>ריצ׳ארג׳</b> הוא עשר דקות ביום למשך 21 יום.</p>";
       $("rMore").appendChild(ctaButton("recharge", name));
     } else {
-      $("rTitle").textContent = "ככה נראה הרצף שלכם היום";
-      $("rLead").textContent = "הדליפה הגדולה שלכם · " + r.leak[s] + "%";
+      $("rTitle").textContent = "הדפוס שמרחיק ביניכם: " + data.pattern;
       $("rAnalysis").innerHTML = data.body;
       $("rHold").innerHTML = data.hold;
       $("rAnalysis2").innerHTML = data.body2 || "";
@@ -660,7 +520,7 @@ footer a:hover{color:var(--cherry)}
     }
 
     show("result");
-    track("QuizComplete", {station:name, total:r.total, band:r.band[s], leak:r.leak[s]});
+    track("QuizComplete", {station:name, total:r.total, band:r.band});
   }
 
   // ---------- events ----------
@@ -676,7 +536,7 @@ footer a:hover{color:var(--cherry)}
   });
   $("share").addEventListener("click", function(){
     var url = window.location.href.split("#")[0];
-    var payload = {title:"למה כל כך קשה להשלים אחרי ריב?", text:"15 שאלות, ובסוף מפת התיקון שלכם.", url:url};
+    var payload = {title:"איפה התיקון שלכם נתקע?", text:"15 שאלות, ותדעו איפה התיקון שלכם נתקע.", url:url};
     if (navigator.share){ navigator.share(payload).catch(function(){}); return; }
     if (navigator.clipboard){
       navigator.clipboard.writeText(url).then(function(){ $("toast").textContent = "הקישור הועתק"; });
